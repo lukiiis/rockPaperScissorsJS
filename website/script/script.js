@@ -73,10 +73,13 @@
 // const ask = prompt("Do you wanna play RPS?");
 // (ask=="no" ? console.log("okay") : game());
 
-const splashScreen = document.querySelector('#splash-screen');
-const splashScreenButton = document.querySelector(' button');
-splashScreenButton.addEventListener('click', () => {
-    setTimeout(() => {
-        splashScreen.classList.add('hide');
-    },400)
-})
+
+//----------------------SPLASH SCREEN-----------------------------
+
+// const splashScreen = document.querySelector('#splash-screen');
+// const splashScreenButton = document.querySelector(' button');
+// splashScreenButton.addEventListener('click', () => {
+//     setTimeout(() => {
+//         splashScreen.classList.add('hide');
+//     },400)
+// })
