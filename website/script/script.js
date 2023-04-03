@@ -5,36 +5,36 @@
 //     return symbols[choice];
 // }
 
-// function playRound(playerSelection, computerSelection) {
-//     playerSelection = playerSelection.toLowerCase();
+function playRound(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
 
-//     if(playerSelection === "rock"){
-//         if(computerSelection==="paper"){
-//             return "You lose, rock is beaten by paper!";
-//         }
-//         if(computerSelection==="scissors"){
-//             return "You win, rock beats scissors!";
-//         }
-//     }
-//     if(playerSelection === "paper"){
-//         if(computerSelection==="rock"){
-//             return "You win, paper beats rock!";
-//         }
-//         if(computerSelection==="scissors"){
-//             return "You lose, paper is beaten by scissors!";
-//         }
-//     }
-//     if(playerSelection === "scissors"){
-//         if(computerSelection==="rock"){
-//             return "You lose, scissors are beaten by rock!";
-//         }
-//         if(computerSelection==="paper"){
-//             return "You win, scissors beat paper!";
-//         }
-//     }
-//     if(playerSelection===computerSelection)
-//         return `Tie, ${playerSelection} ties with ${computerSelection}!`;
-//   }
+    if(playerSelection === "rock"){
+        if(computerSelection==="paper"){
+            return "You lose, rock is beaten by paper!";
+        }
+        if(computerSelection==="scissors"){
+            return "You win, rock beats scissors!";
+        }
+    }
+    if(playerSelection === "paper"){
+        if(computerSelection==="rock"){
+            return "You win, paper beats rock!";
+        }
+        if(computerSelection==="scissors"){
+            return "You lose, paper is beaten by scissors!";
+        }
+    }
+    if(playerSelection === "scissors"){
+        if(computerSelection==="rock"){
+            return "You lose, scissors are beaten by rock!";
+        }
+        if(computerSelection==="paper"){
+            return "You win, scissors beat paper!";
+        }
+    }
+    if(playerSelection===computerSelection)
+        return `Tie, ${playerSelection} ties with ${computerSelection}!`;
+  }
   
 
 // function game(){
@@ -76,10 +76,14 @@
 
 //----------------------SPLASH SCREEN-----------------------------
 
-// const splashScreen = document.querySelector('#splash-screen');
-// const splashScreenButton = document.querySelector(' button');
-// splashScreenButton.addEventListener('click', () => {
-//     setTimeout(() => {
-//         splashScreen.classList.add('hide');
-//     },400)
-// })
+const splashScreen = document.querySelector('#splash-screen');
+const splashScreenButton = document.querySelector(' button');
+splashScreenButton.addEventListener('click', () => {
+    setTimeout(() => {
+        splashScreen.classList.add('hide');
+    },400)
+})
+
+
+const buttons = document.querySelectorAll(".rps-box-player .rps-button");
+console.log(buttons);
