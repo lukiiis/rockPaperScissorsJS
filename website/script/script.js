@@ -1,9 +1,9 @@
-// const symbols = ["rock", "paper", "scissors"];
+const symbols = ["rock", "paper", "scissors"];
 
-// function getComputerChoice(){
-//     const choice = Math.floor(Math.random() * 3);
-//     return symbols[choice];
-// }
+function getComputerChoice(){
+    const choice = Math.floor(Math.random() * 3);
+    return symbols[choice];
+}
 
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
@@ -84,6 +84,103 @@ splashScreenButton.addEventListener('click', () => {
     },400)
 })
 
+//-----------------------GAME------------------------------
+
+let computerScore = 0, playerScore = 0;
 
 const buttons = document.querySelectorAll(".rps-box-player .rps-button");
-console.log(buttons);
+const computerButtons = document.querySelectorAll(".rps-box-computer .rps-button");
+const playerScoreDiv = document.querySelector("#player-score");
+const computerScoreDiv = document.querySelector("#computer-score");
+const commentDiv = document.querySelector(".rps-comment");
+
+let playerChoice = "";
+
+function printScore(playerComputerDiv, playerComputerScore){
+    playerComputerDiv.innerText= `Score: ${playerComputerScore}`;
+}
+
+function printComment(comment){
+    commentDiv.textContent = comment;
+}
+
+function resetButtonsColor(buttons){
+    buttons.forEach(button => {
+        button.removeAttribute('style');
+    })
+}
+
+buttons.forEach(button =>{
+    button.addEventListener('click',(e) => {
+        //resets buttons to basic color (removes inline style)
+        resetButtonsColor(buttons);
+        resetButtonsColor(computerButtons);
+
+        playerChoice = e.target.id;
+        playRoundUI(playerChoice,getComputerChoice());
+    })
+})
+
+function playRoundUI(playerChoice,computerChoice){
+    //sets selected button color
+    const computerButton=document.querySelector(`.rps-box-computer #${computerChoice}`);
+    computerButton.setAttribute('style','background:blue');
+    //sets selected button color
+    const playerButton=document.querySelector(`.rps-box-player #${playerChoice}`);
+    playerButton.setAttribute('style','background:red');
+
+    //here to print zeros at the beginning of the 2nd and next games
+    printScore(playerScoreDiv, playerScore);
+    printScore(computerScoreDiv, computerScore);
+
+    if(playerChoice === "rock"){
+        if(computerChoice==="paper"){
+            computerScore++;
+            printScore(computerScoreDiv, computerScore);
+            printComment("You lose, rock is beaten by paper!");
+        }
+        if(computerChoice==="scissors"){
+            playerScore++;
+            printScore(playerScoreDiv, playerScore);
+            printComment("You win, rock beats scissors!");
+        }
+    }
+    if(playerChoice === "paper"){
+        if(computerChoice==="rock"){
+            playerScore++;
+            printScore(playerScoreDiv, playerScore);
+            printComment("You win, paper beats rock!");
+        }
+        if(computerChoice==="scissors"){
+            computerScore++;
+            printScore(computerScoreDiv, computerScore);
+            printComment("You lose, paper is beaten by scissors!");
+        }
+    }
+    if(playerChoice === "scissors"){
+        if(computerChoice==="rock"){
+            computerScore++;
+            printScore(computerScoreDiv, computerScore);
+            printComment("You lose, scissors are beaten by rock!");
+        }
+        if(computerChoice==="paper"){
+            playerScore++;
+            printScore(playerScoreDiv, playerScore);
+            printComment("You win, scissors beat paper!");
+        }
+    }
+    if(playerChoice===computerChoice)
+        printComment(`Tie, ${playerChoice} ties with ${computerChoice}!`);
+
+    if(playerScore==5){
+        printComment("You won the game!");        
+        playerScore=0;
+        computerScore=0;
+        
+    }
+    else if(computerScore==5){
+        printComment("You lost the game!");
+        playerScore=0;
+        computerScore=0;
+    }
+}
