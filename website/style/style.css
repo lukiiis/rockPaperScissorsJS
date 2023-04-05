@@ -164,12 +164,6 @@ body{
 
 
 @media all and (max-width:980px){
-    .rps-choose{
-        /* margin-top:30px; */
-    }
-    .rps-button{
-         /* margin-top:30px; */
-    }
     .header{
         margin-bottom:30px;
     }
