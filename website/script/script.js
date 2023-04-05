@@ -94,6 +94,17 @@ const playerScoreDiv = document.querySelector("#player-score");
 const computerScoreDiv = document.querySelector("#computer-score");
 const commentDiv = document.querySelector(".rps-comment");
 
+//set the playername in rps-box-player
+const playerNameDiv = document.querySelector(".rps-box-player .rps-playername");
+const startGameButton = document.querySelector("#start-game");
+startGameButton.addEventListener('click', e => {
+    let playerName=document.querySelector("#player-name").value;
+    if(playerName=="")
+        playerName="Nameless"
+    playerNameDiv.textContent = playerName;
+})
+
+
 let playerChoice = "";
 
 function printScore(playerComputerDiv, playerComputerScore){
@@ -176,7 +187,6 @@ function playRoundUI(playerChoice,computerChoice){
         printComment("You won the game!");        
         playerScore=0;
         computerScore=0;
-        
     }
     else if(computerScore==5){
         printComment("You lost the game!");

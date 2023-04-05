@@ -32,11 +32,34 @@ body{
     transition: all ease-in-out 600ms;
 }
 
+.splash-screen-title{
+    color: rgb(225, 148, 48);
+    text-shadow:4px 4px black;
+    text-align: center;
+}
+
 .splash-screen-content > button{
     height:60px;
     width:170px;
     cursor: pointer;
     font-size:20px;
+    margin-top:35px;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px 3px #241717 ;
+    transition:0.2s;
+}
+
+.splash-screen-content > button:active{
+    box-shadow: 1px 1px 1px 1px #000000;
+    transform: translate(2%,2%);
+}
+
+#player-name{
+    height:30px;
+    width:250px;
+    margin-top:10px;
+    font-size:22px;
+    text-align: center;
 }
 
 .header{
@@ -130,10 +153,27 @@ body{
 .rps-comment{
     margin-top:50px;
     font-size:24px;
+    text-align: center;
 }
 
 .footer{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+
+@media all and (max-width:980px){
+    .rps-choose{
+        /* margin-top:30px; */
+    }
+    .rps-button{
+         /* margin-top:30px; */
+    }
+    .header{
+        margin-bottom:30px;
+    }
+    .footer{
+        margin-top:30px;
+    }
 }
