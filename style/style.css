@@ -17,6 +17,7 @@ body{
 
 #splash-screen{
     background-color: rgb(40, 40, 40);
+
     font-size:25px;
     position: fixed;
     height: 100%;

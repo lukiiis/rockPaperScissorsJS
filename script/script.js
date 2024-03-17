@@ -36,7 +36,7 @@ function playRound(playerSelection, computerSelection) {
         return `Tie, ${playerSelection} ties with ${computerSelection}!`;
   }
   
-
+//console functionality
 // function game(){
 //     let playerScore = 0;
 //     let computerScore = 0;
@@ -135,7 +135,7 @@ buttons.forEach(button =>{
 function playRoundUI(playerChoice,computerChoice){
     //sets selected button color
     const computerButton=document.querySelector(`.rps-box-computer #${computerChoice}`);
-    computerButton.setAttribute('style','background:blue');
+    computerButton.setAttribute('style','background:rgb(121, 49, 255)');
     //sets selected button color
     const playerButton=document.querySelector(`.rps-box-player #${playerChoice}`);
     playerButton.setAttribute('style','background:red');
